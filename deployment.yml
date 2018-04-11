@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: hello-world
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hello-world
+    spec:
+      containers:
+      - name: hello-world
+        image: registry.gitlab.com/maheshberi/hello-world
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 9070
+      imagePullSecrets:
+        - name: registry.gitlab.com
